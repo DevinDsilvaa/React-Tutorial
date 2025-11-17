@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 1</title>
+
+    <style>
+        .ex1{
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        span{
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script> 
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+
+      const div = (
+        <div className="ex1">
+            <span>
+                <button>Good Job!</button>
+                <p>My name is Devin</p>
+            </span>
+            <span>
+                <p>Cotton Socks
+                <br/>
+                Price: $10
+                <br/>
+                <button>Add to Cart</button>
+                </p>
+            </span>
+        </div>
+      );
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(div);
+    </script>
+  </body>
+</html>
