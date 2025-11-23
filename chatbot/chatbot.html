@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+<>
+this is the syntax of fragment which is similar to <div></div>
+but it doesn't add extra div to our website unlike div tag does.
+</> -> this is called as fragment which groups mutiple attributes/components together to display as one
+-->
+
+<!-- 
+<ChatInput /> -> this is a component syntax
+-->
+
+<!-- 
+props -> shortform for properties
+props make our component reusable
+-->
+
+<head>
+  <title>Chatbot</title>
+</head>
+
+<body>
+
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function ChatInput() {
+      return (
+        <>
+          <input placeholder="Send a message to ChatBot" size="30" />
+          <button>Send</button>
+        </>
+      );
+    }
+
+
+    function ChatMessage({ message, sender }) {
+      // const message = props.message
+      // const sender = props.sender
+
+      // below line is shortcut for above 2
+      // const { message , sender } = props;  // it is shortcut for above syntax and is called as destructuring
+      // it takes the message and sender properties out of props objects and saves in message and sender variable within {}
+
+      /*
+      if (sender === "robot") {
+        return (
+          <div>
+            <img src="chatbot.png" width="50" />
+            {message}
+          </div>
+        );
+      }
+      */ //there's an alternate below in {}
+
+      return (
+        <div>
+          {sender === "robot" && (
+            <img src="chatbot.png" width="50" />
+          )}
+
+          {message}
+
+          {sender === "user" && (
+            <img src="user.png" width="50" />
+          )}
+        </div>
+      );
+    }
+
+
+    function App() {
+      return (
+        <>
+          <ChatInput />
+
+          <ChatMessage
+            message="Hello chatbot"
+            sender="user"
+          />
+          <ChatMessage
+            message="Hello! How can I help you?"
+            sender="robot"
+          />
+          <ChatMessage
+            message="can you get me todays date?"
+            sender="user"
+          />
+          <ChatMessage
+            message="Today is November 22"
+            sender="robot"
+          />
+        </>
+      );
+    }
+
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+
+</html>

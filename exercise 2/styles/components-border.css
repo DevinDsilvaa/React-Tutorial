@@ -1,0 +1,23 @@
+/* Border for components: 2px solid black */
+/* Targets common component/container class names and semantic containers. */
+[class*="component"], [class*="Component"], .component, .card, .container, .box, .panel,
+section, article, header, footer, main, nav, .app, .App, .ex1, span {
+  border: 2px solid black !important;
+  box-sizing: border-box;
+}
+
+/* Ensure images inside components don't overflow their bordered container */
+.ex1 img, img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specific styling for ProductDetails components in exercise 2 */
+.product-details {
+  border: 2px solid black;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 12px;
+  margin-right: 16px; /* gap between products */
+  vertical-align: top;
+}
